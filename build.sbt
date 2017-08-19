@@ -50,6 +50,9 @@ lazy val jvmDependencySettings = Seq.empty
 
 lazy val jsDependencySettings = Seq.empty
 
+//ensime
+scalaVersion in ThisBuild := "2.12.3"
+
 lazy val sharedDependencySettings = Seq(
   libraryDependencies ++= Seq(
     compilerPlugin("org.wartremover" %% "wartremover" % "1.2.1"),
@@ -59,7 +62,7 @@ lazy val sharedSettings =
   sharedDependencySettings ++
   Seq(name := "abrechnung",
       organization := "praxkit",
-      scalaVersion := "2.12.2",
+      scalaVersion := "2.12.3",
       scalacOptions := sharedScalacOptions ++ wartremoverOptions,
       scalacOptions in (Compile, console) ~= (_ filterNot (nonConsoleOptions.contains(_))),
       scalacOptions in (Test, console) := (scalacOptions in (Compile, console)).value)
